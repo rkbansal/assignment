@@ -21,7 +21,7 @@ export default function BarChart(props) {
       xDomain={[timestamp, timestamp + 9 * ONE_DAY]}
       yDomain={[1, 15]}
       xType="time"
-      width={500}
+      width={window.screen.width < 768 ? window.screen.width-50:500}
       height={300}
       tickSize={1}
     >

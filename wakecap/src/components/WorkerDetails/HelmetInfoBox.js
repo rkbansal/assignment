@@ -4,10 +4,6 @@ import Identification from '../../content/identification.png';
 import EmojiFrequentIcon from '@atlaskit/icon/glyph/emoji/frequent';
 import HipchatMediaAttachmentCountIcon from '@atlaskit/icon/glyph/hipchat/media-attachment-count';
 export default class HelmetInfoBox extends Component {
-    constructor (props){
-        super(props);
-    }
-
     render () {
         return (
         <div className="helmet-info-box">

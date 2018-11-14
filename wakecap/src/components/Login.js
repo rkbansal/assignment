@@ -14,9 +14,8 @@ export default class Login extends Component {
 
     onSubmitHandler = () => {
         if (!this.formRef.validate().isInvalid) {
-            if( localStorage.getItem('email') == this.formRef.getFieldByName('email').value &&
-            localStorage.getItem('password') == this.formRef.getFieldByName('password').value){
-                console.log('go ahead');
+            if( localStorage.getItem('email') === this.formRef.getFieldByName('email').value &&
+            localStorage.getItem('password') === this.formRef.getFieldByName('password').value){
                 localStorage.setItem('token','valid');
                 this.formRef.submit();
             }
@@ -27,7 +26,7 @@ export default class Login extends Component {
         return(
             <div className="login-container">
                 <div className="company-login-banner">
-                    <div><img className="company-logo-png" src={Logo} /></div>
+                    <div><img className="company-login-logo-png" alt="Wake-Cap-Logo" src={Logo} /></div>
                     <div className="login-info">Log in to your account</div>
                 </div>
                 <div className="login-form">

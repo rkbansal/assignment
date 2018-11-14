@@ -1,10 +1,12 @@
 import React from 'react';
+import Button from '@atlaskit/button';
 import {AppConsumer} from '../Provider/AppContext';
 import TopComponent from './TopComponent';
 import GlobalNavigator from './GlobalNavigator';
 import Logo from '../content/wakecap.png';
 import DummyComponent from './DummyComponent';
 import Workers from './Workers';
+import ListModal from './ListModal';
 const list = [
     {
       "name": "Dashboard",
@@ -43,14 +45,23 @@ const list = [
     },
   ];
 
-const WorkSpace=(props)=>{
+  const handleLogout = () => {
+    localStorage.setItem('token','invalid');
+    window.location.reload();
+  }
 
-  console.log(props);
+const WorkSpace=(props)=>{
   return(
     <React.Fragment>
         <div className="workspace">
             <div className="company-logo">
+              <div className="drawer-button">
+                <ListModal data={list}/>
+              </div>
                 <img className="company-logo-png" src={Logo} />
+                <div className="signout-mobile">
+                  <Button appearance={"help"} onClick={handleLogout}>Sign Out</Button>
+                </div>
             </div>
             <AppConsumer>
             {(context)=>{

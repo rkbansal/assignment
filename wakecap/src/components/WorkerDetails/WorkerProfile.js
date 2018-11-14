@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Avatar, { AvatarItem } from '@atlaskit/avatar';
 
 export default class WorkerProfile extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         return (
         <div className="worker-profile">

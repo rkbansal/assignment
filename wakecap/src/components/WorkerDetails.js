@@ -9,13 +9,8 @@ import HelmetInfoBox from './WorkerDetails/HelmetInfoBox';
 import BarChart from './WorkerDetails/BarChart';
 
 class WorkerDetails extends Component {
-    constructor(props) {
-        super(props);
-    }
-
     render() {
         var worker = this.props.workers[this.props.number];
-        var color = '#5393ff';
         return (
             <React.Fragment>
                 <div className="flex-row row-basic-info">
@@ -30,14 +25,16 @@ class WorkerDetails extends Component {
                     <div className="worker-history">
                         <IconWithLabel icon={CalendarIcon} heading="Total Hours Worked" body={worker.total_hours_worked}/>
                         <IconWithLabel icon={LocationIcon} heading="Last Active Zone" body={worker.last_active_zone}/>
-                        <Button appearance="help">Full History</Button>
+                        <div className="full_history">
+                            <Button appearance="help" shouldFitContainer>Full History</Button>
+                        </div>
                     </div>
                     <div className="bar-chart">
                         <BarChart hours={worker.hours}/>
                     </div>
                 </div>
                 <div className="flex-row-only">
-                    <div>Assigned Helmets</div>
+                    <div className="assigned_text">Assigned Helmets</div>
                     <div className="row-assigned-helmet">
                         {worker.assigned_helmets.map((helmet, key)=> <HelmetInfoBox {...helmet} key={key}/>)}
                     </div>

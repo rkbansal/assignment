@@ -1,32 +1,26 @@
 import React, { Component } from 'react';
 import Dropdown, { DropdownItemGroupRadio, DropdownItemRadio, DropdownItem } from '@atlaskit/dropdown-menu';
 import Avatar from '@atlaskit/avatar/dist/cjs/components/Avatar';
-import Button from '@atlaskit/button/dist/cjs/components/Button';
 
 export default class TopComponent extends Component {
-    
-    constructor(props) {
-        super(props);
-    }
-
-    handleLogout = () => {
-        localStorage.setItem('token','invalid');
-        window.location.reload();
-    }
-
     render() {
         return (
         <div className="TopComponent">
             <div className="title">
-                <div>
+                <div className="title-1">
                     {this.props.title[0] || "WORKERS"}
                 </div>
-                <div>
+                <div className="title-2">
                     {this.props.title[1] || "Overview"}
                 </div>
             </div>
             <div className="select-site">
-                <Dropdown triggerType="button" trigger="Select Site">
+                <Dropdown
+                    triggerType="button"
+                    trigger="Select Site"
+                    shouldFlip={true}
+                    position="bottom left"
+                >
                     <DropdownItemGroupRadio id="sites" title="sites">
                         {this.props.sites.map((site, index)=> <span key={index}><DropdownItemRadio onClick={this.handleLogout} id={site}>{site || "No Site"}</DropdownItemRadio></span>)}
                     </DropdownItemGroupRadio>
@@ -42,11 +36,10 @@ export default class TopComponent extends Component {
                     isMixedMenu
                     triggerType="button"
                     trigger={this.props.user.name}>
-                        <DropdownItem>Item 1</DropdownItem>
-                        <DropdownItem>Item 2</DropdownItem>
-                        <DropdownItem>Item 3</DropdownItem>
+                        <DropdownItem>Option 1</DropdownItem>
+                        <DropdownItem>Option 2</DropdownItem>
+                        <DropdownItem>Option 3</DropdownItem>
                     </Dropdown>
-                    <Button appearance={'help'} onClick={this.handleLogout}>Sign Out</Button>
             </div>
         </div>);
     }

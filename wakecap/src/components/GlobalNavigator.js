@@ -1,14 +1,23 @@
 import React from 'react';
-import {Link, Switch} from 'react-router-dom';
+import { Link, Switch, Redirect } from 'react-router-dom';
 import PrivateRoute from './HOC';
-import { Redirect } from 'react-router-dom';
+import Button from '@atlaskit/button/dist/cjs/components/Button';
  const GlobalNavigator = (props) => {
 
+ const handleLogout = () => {
+    localStorage.setItem('token','invalid');
+    window.location.reload();
+  }
+  
   const list = props.list.map((ele, key) => {
                   return (
-                  <li key={key} className="sidebar-item">
-                    <Link to={ele.path}>{ele.name}</Link>
-                  </li>);
+                    <React.Fragment key={key}>
+                      <Link to={ele.path}>
+                        <li className="sidebar-item">
+                          {ele.name}
+                        </li>
+                      </Link>
+                    </React.Fragment>);
                 });
 
   const routes = props.list.map((ele, key) => {
@@ -25,6 +34,7 @@ import { Redirect } from 'react-router-dom';
         <ul className="routes-list">
           {list}
         </ul>
+        <div><Button shouldFitContainer appearance={'help'} onClick={handleLogout}>Sign Out</Button></div>
       </div>
       <div className="right-panel">
       <Switch>

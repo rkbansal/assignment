@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import WorkersList from './WorkersList';
 import WorkerDetails from './WorkerDetails';
 import { AppConsumer } from '../Provider/AppContext';
-
-console.log(WorkerDetails);
 class Workers extends Component {
 
     render() {
@@ -13,6 +11,7 @@ class Workers extends Component {
                 return (
                 <div className="worker-container">
                     <div className="workers-list">
+                        <div className="caption">List of Workers</div>
                         <WorkersList workers={context.workers} selectLeftIndex={context.selectLeftIndex}/>
                     </div>
                     <div className="worker-details">

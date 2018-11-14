@@ -2,10 +2,6 @@ import React, { Component } from 'react';
 import Avatar from '@atlaskit/avatar';
 
 export default class Supervisor extends Component {
-    constructor(props){
-        super(props);
-    }
-
     render() {
         return (
             <div className="supervisor-profile">
